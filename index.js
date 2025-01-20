@@ -49,9 +49,9 @@ app.post("/edit", async(req, res) => {
   }
 });
 
-app.post("/delete", async(req, res) => {
+app.post("/delete/:id", async(req, res) => {
   try {
-    await db.query("DELETE FROM items WHERE id = $1", [req.body.deleteItemId]);
+    await db.query("DELETE FROM items WHERE id = $1", [req.params.id]);
     res.redirect("/")
   } catch (error) {
     console.log(error);

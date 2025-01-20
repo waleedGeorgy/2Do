@@ -2,7 +2,7 @@
 
   <div id="header">
     <h1>2Do✏️</h1>
-    <a href="/new_list"><button type="submit" class="add-list-btn">Create a new to-do list</button></a>
+    <a href="/new_list"><button type="submit" class="add-list-btn">New to-do list</button></a>
   </div>
   <% if(locals.listItems){ %>
     <!-- Main container -->
@@ -17,11 +17,12 @@
         <% listItems.filter((item) => item.list_id == listItem).forEach(item => { %>
           <% if(item.item_id != null && item.title != null){ %>
             <div class="item">
-              <form action="/delete" method="post">
-                <input id="delete-btn" type="checkbox" onchange="this.form.submit()" name="deleteItemId" value="<%= item.item_id %>">
+              <!-- Delete item -->
+              <form action="/delete/<%= item.item_id %>" method="post">
+                <input id="delete-btn" type="submit" name="deleteItemId" value="">
               </form>
               <p id="title<%=item.item_id%>"><%= item.title %></p>
-              <!-- Update item -->
+              <!-- Edit item -->
               <form class="edit" action="/edit" method="post">
                 <input type="hidden" name="updatedItemId" value="<%= item.item_id %>">
                 <input id="input<%=item.item_id%>" type="text" name="updatedItemTitle" value="<%= item.title %>" autocomplete="off"
@@ -39,7 +40,7 @@
           <input type="hidden" name="newlistId" value="<%= listItem %>">
           <button class="add" type="submit" name="list">+</button>
         </form>
-        <!-- Delete item -->
+        <!-- Delete list -->
         <form action="/delete_list/<%= listItem %>" method="post" id="delete-form">
           <input type="submit" id="delete-list-btn" value="">
         </form>

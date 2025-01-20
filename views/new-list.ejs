@@ -2,9 +2,9 @@
     <div id="new-list-div">
         <h2>Create a new to-do list</h2>
         <form action="/new_list" method="post" id="new-list-form">
+            <input type="text" name="list_name" id="list-name" autofocus="true" placeholder="List name" required><br>
             <label for="list-date">To-do list date</label>
             <input type="date" name="list_date" id="list-date" required><br>
-            <input type="text" name="list_name" id="list-name" autofocus="true" placeholder="List name" required><br>
             <input type="submit" class="create-list-btn" value="Create">
         </form>
     </div>
