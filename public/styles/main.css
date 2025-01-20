@@ -1,47 +1,122 @@
 html {
-  background: -webkit-linear-gradient(65deg, #35374B 50%, #344955 50%);
+  background-color: rgb(34, 34, 34);
   min-height: 100vh;
   font-family: "Fira Sans", serif;
   font-weight: 400;
   font-style: normal;
 }
+
 body {
   display: flex;
   flex-direction: column;
   justify-content: stretch;
   min-height: 95vh;
 }
+
 #header{
-  text-align: left;
   margin: 0;
   padding: 15px;
-  padding-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
+
 #header h1{
   margin: 0;
   padding: 0;
 }
+
+#to-do-lists{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+}
+
+.add-list-btn{
+  display: inline-block;
+  padding: 10px;
+  background-color: rgb(235, 185, 5);
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 0;
+  color: black;
+  margin-top: 2px;
+  margin-left: 1rem;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.5s;
+}
+
+.add-list-btn:hover{
+  background-color: rgb(255, 212, 57);;
+  cursor: pointer;
+}
+
+.red-btn{
+  display: inline-block;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  text-decoration: none;
+  background-color: rgb(229, 38, 38);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.5s;
+}
+
+.red-btn:hover{
+  cursor: pointer;
+  background-color: rgb(255, 65, 65);
+}
+
+.create-list-btn{
+  box-shadow: none;
+  margin: 0;
+  background-color: #75bc89;
+  display: inline-block;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  margin-top: 2px;
+  transition: background-color 0.5s;
+}
+
+.create-list-btn:hover{
+  cursor: pointer;
+  background-color: #58976a;
+}
+
 main {
   text-align: center;
   flex: 1 0 auto;
 }
+
 h1 {
   color: #fff;
-  padding: 10px;
 }
 
 .box {
   max-width: 400px;
   margin: 50px auto;
-  background: white;
+  background: whitesmoke;
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
-#heading {
-  background-color: #50727B;
-  text-align: center;
+.box h2{
+  background-color: rgb(235, 185, 5);
+  margin-top: 0;
+  color: rgb(14, 14, 14);
+  padding: 10px;
+  border-radius: 5px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
+
 form.edit {
   display: flex;
 }
@@ -79,10 +154,16 @@ button.add {
   width: 50px;
   border-radius: 50%;
   border-color: transparent;
-  background-color: #78A083;
+  background-color: #75bc89;
   color: #fff;
   font-size: 30px;
   border-width: 0;
+  transition: background-color .5s;
+}
+
+button.add:hover {
+  cursor: pointer;
+  background-color: #58976a;
 }
 
 button.edit {
@@ -92,8 +173,25 @@ button.edit {
   background: none;
 }
 
+button.edit:hover {
+  cursor: pointer;
+}
+
 #delete-btn{
   accent-color: #50727B;
+}
+
+#delete-list-btn{
+  background-image: url("/assets/icons/trash.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  padding: 1rem;
+  background-color: whitesmoke;
+}
+
+#delete-list-btn:hover{
+  cursor: pointer;
 }
 
 .icon {
@@ -121,8 +219,47 @@ input[type="text"]:focus {
   opacity: 1;
 }
 
+#delete-form{
+  margin-left: 0;
+}
+
+#new-list-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0.5rem;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  background-color: whitesmoke;
+}
+
+#new-list-div h2{
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+#new-list-div label{
+  margin-right: 1rem;
+}
+
+#new-list-div input[type="text"]{
+  margin: 1rem 0;
+}
+
+#new-list-form{
+  margin-left: 0;
+}
+
 footer {
   flex: 0 0 auto;
   color: white;
-  text-align: center;
+  text-align: right;
+  font-size: 0.7rem;
+  letter-spacing: 0.25rem;
+  padding-right: 1rem;
 }
